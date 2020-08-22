@@ -1,0 +1,523 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{2. Structuring Data}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Structuring Data}\label{structuring-data}
+
+    In Excel you typically organize data in tables where each column is of a
+a specific \emph{type} like number, text string or date. In R you use
+vector, matrix, list and array and your values are of \emph{type}
+Logical, Numeric, Integer or Character. Similarly, F\# has \emph{types}.
+
+F\# has a lot of built-in typs such as \texttt{string}, \texttt{int} and
+\texttt{decimal} and it also has container types like \texttt{array},
+\texttt{list} and \texttt{seq} (sequence) that can contain other items.
+The .NET framework itself also has a lot of types that you can use, such
+as the commonly used \texttt{DateTime} type. The best part is that you
+can create your own types.
+
+\subsection{Records}\label{records}
+
+You have already seen some of the built-in F\# types and you have also
+created some types of your own in the first example, where you created
+the \texttt{PersonPolicy} type.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{k}{type} \PY{n+nc}{PersonPolicy} \PY{o}{=} 
+             \PY{o}{\PYZob{}}
+                 \PY{n}{PersonId}\PY{o}{:} \PY{k+kt}{string}\PY{o}{;}
+                 \PY{n}{PolicyNumber}\PY{o}{:} \PY{k+kt}{string}\PY{o}{;}
+                 \PY{n}{Premium}\PY{o}{:} \PY{k+kt}{decimal}\PY{o}{;}
+             \PY{o}{\PYZcb{}}
+\end{Verbatim}
+
+
+    As you can see, \texttt{PersonPolicy} is really just a combination of
+other types: \texttt{string} and \texttt{decimal}. That way you can
+create an endless number of types by combining existing types. This kind
+of type is called a \emph{record} type. It is also called a
+\emph{product} type because its sample space is
+\texttt{string\ *\ string\ *\ decimal}.
+
+You create values of a type by using the \texttt{let} keyword.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{k}{let} \PY{n+nv}{theAnswer} \PY{o}{=} \PY{l+m+mi}{42} \PY{c+c1}{// An integer}
+         \PY{k}{let} \PY{n+nv}{greeting} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello world}\PY{l+s}{\PYZdq{}} \PY{c+c1}{// A string}
+         \PY{k}{let} \PY{n+nv}{pi} \PY{o}{=} \PY{l+m+mi}{3}\PY{o}{.}\PY{l+m+mi}{141} \PY{c+c1}{// A double}
+         \PY{k}{let} \PY{n+nv}{pp} \PY{o}{=} 
+             \PY{o}{\PYZob{}}
+                 \PY{n}{PersonId} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{123}\PY{l+s}{\PYZdq{}}\PY{o}{;}
+                 \PY{n}{PolicyNumber} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Pol001}\PY{l+s}{\PYZdq{}}\PY{o}{;}
+                 \PY{n}{Premium} \PY{o}{=} \PY{l+m+mi}{10000m}\PY{o}{;}
+             \PY{o}{\PYZcb{}}
+\end{Verbatim}
+
+
+    Notice how you don't have to specify the type anywhere. You just create
+the value and most of the time F\# will figure out what type you
+intended. F\# will keep track of the types behind the scenes which is
+very useful when defining functions as you will see later.
+
+\begin{quote}
+Why the \texttt{m}? Notice the \texttt{m} after the premium amount in
+line 8 above? The \texttt{m} tells F\# that you want a decimal and not
+an integer. If you remove the \texttt{m}, you will get an error saying
+that F\# cannot convert the integer 10000 to a decimal, since the
+Premium field is of type decimal.
+\end{quote}
+
+\subsection{Discriminated Unions}\label{discriminated-unions}
+
+Discriminated unions are a way of defining a type with mutually
+exclusive ways of creating values of that type. It sounds weird but it
+is a really nice way to represent data. Say for example that you have to
+policy systems in your company. One is an old legacy system where policy
+numbers are represented as integers. For the other newer system policy
+numbers are strings. For this setup you might define the PersonPolicy
+like so.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}37}]:} \PY{k}{type} \PY{n+nc}{PolicyNumber} \PY{o}{=}
+             \PY{o}{|} \PY{n}{LegacyPolicyNumber} \PY{k}{of} \PY{n}{int}
+             \PY{o}{|} \PY{n}{NewPolicyNumber} \PY{k}{of} \PY{k+kt}{string}
+             
+         \PY{k}{type} \PY{n+nc}{PersonPolicy2} \PY{o}{=}
+             \PY{o}{\PYZob{}}
+                 \PY{n}{PersonId}\PY{o}{:} \PY{k+kt}{string}\PY{o}{;}
+                 \PY{n}{PolicyNumber}\PY{o}{:} \PY{n}{PolicyNumber}\PY{o}{;}
+                 \PY{n}{Premium}\PY{o}{:} \PY{k+kt}{decimal}\PY{o}{;}
+             \PY{o}{\PYZcb{}}
+\end{Verbatim}
+
+
+    The \texttt{PersonPolicy2} type is used like so.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{k}{let} \PY{n+nv}{legacyPolicyPerson} \PY{o}{=} 
+             \PY{o}{\PYZob{}}
+                 \PY{n}{PersonId} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{1}\PY{l+s}{\PYZdq{}}\PY{o}{;}
+                 \PY{n}{PolicyNumber} \PY{o}{=} \PY{n}{LegacyPolicyNumber}\PY{o}{(}\PY{l+m+mi}{42}\PY{o}{)}\PY{o}{;}
+                 \PY{n}{Premium} \PY{o}{=} \PY{l+m+mi}{1000m}\PY{o}{;}
+             \PY{o}{\PYZcb{}}
+             
+         \PY{k}{let} \PY{n+nv}{newPolicyPerson} \PY{o}{=}
+             \PY{o}{\PYZob{}}
+                 \PY{n}{PersonId} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{2}\PY{l+s}{\PYZdq{}}\PY{o}{;}
+                 \PY{n}{PolicyNumber} \PY{o}{=} \PY{n}{NewPolicyNumber}\PY{o}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{Pol01}\PY{l+s}{\PYZdq{}}\PY{o}{)}\PY{o}{;}
+                 \PY{n}{Premium} \PY{o}{=} \PY{l+m+mi}{1200m}\PY{o}{;}    
+             \PY{o}{\PYZcb{}}
+         
+         \PY{n}{display}\PY{o}{(}\PY{n}{legacyPolicyPerson}\PY{o}{.}\PY{n}{PolicyNumber}\PY{o}{)}
+         \PY{n}{display}\PY{o}{(}\PY{n}{newPolicyPerson}\PY{o}{.}\PY{n}{PolicyNumber}\PY{o}{)}
+\end{Verbatim}
+
+
+    
+    
+    
+    
+    Using discriminated unions like that gives you complete control and type
+safety when handling data. In the above example, the discriminated union
+ensures that there is no doubt whether you are holding a legacy policy
+number or a new policy number. The type tells us what it is. Later on
+you will learn how to use \emph{matching} to handle discriminated
+unions.
+
+\subsubsection{Options}\label{options}
+
+Probably the most important discriminated union in F\# is the
+\href{https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options}{\texttt{Option}}
+type. An option can be either \texttt{Some} or \texttt{None} where
+\texttt{None} means that the value does not exist. For example, you
+would use \texttt{None} if a value read from a CSV file or from a
+database is missing. Option values are set like so.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}39}]:} \PY{k}{let} \PY{n+nv}{existingValue} \PY{o}{=} \PY{n}{Some}\PY{o}{(}\PY{l+m+mi}{42}\PY{o}{)}
+         \PY{k}{let} \PY{n+nv}{missingValue} \PY{o}{=} \PY{n}{None}
+\end{Verbatim}
+
+
+    \subsubsection{Single Case Discriminated
+Unions}\label{single-case-discriminated-unions}
+
+    Let us say you have a function that creates a displayname from given
+name and surname (we will get to functions in the next chapter).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}40}]:} \PY{k}{let} \PY{n+nv}{createDisplayName} \PY{n}{givenName} \PY{n}{surName} \PY{o}{=}
+             \PY{n}{givenName} \PY{o}{+} \PY{l+s}{\PYZdq{}}\PY{l+s}{ }\PY{l+s}{\PYZdq{}} \PY{o}{+} \PY{n}{surName}
+             
+         \PY{k}{let} \PY{n+nv}{a} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Jakob}\PY{l+s}{\PYZdq{}}
+         \PY{k}{let} \PY{n+nv}{b} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{Christensen}\PY{l+s}{\PYZdq{}}
+         \PY{n}{createDisplayName} \PY{n}{a} \PY{n}{b}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}40}]:} Jakob Christensen
+\end{Verbatim}
+            
+    Accidentally, you may call it like this because both parameters are of
+type \texttt{string} and therefore interchangeable.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}41}]:} \PY{n}{createDisplayName} \PY{n}{b} \PY{n}{a}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}41}]:} Christensen Jakob
+\end{Verbatim}
+            
+    To make it harder for the caller to make this mistake, you can introduce
+single case discriminated unions.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}44}]:} \PY{c+c1}{// GivenName and SurName are single case discriminated unions}
+         \PY{k}{type} \PY{n+nc}{GivenName} \PY{o}{=} \PY{n}{GivenName} \PY{k}{of} \PY{k+kt}{string}
+         \PY{k}{type} \PY{n+nc}{SurName} \PY{o}{=} \PY{n}{SurName} \PY{k}{of} \PY{k+kt}{string}
+         
+         \PY{c+c1}{// \PYZdq{}Deconstruct\PYZdq{} givenName and surName to get the actual string values inside.}
+         \PY{k}{let} \PY{n+nv}{createDisplayName2} \PY{o}{(}\PY{n}{GivenName} \PY{n}{givenName}\PY{o}{)} \PY{o}{(}\PY{n}{SurName} \PY{n}{surName}\PY{o}{)} \PY{o}{=}
+             \PY{n}{givenName} \PY{o}{+} \PY{l+s}{\PYZdq{}}\PY{l+s}{ }\PY{l+s}{\PYZdq{}} \PY{o}{+} \PY{n}{surName}
+             
+         \PY{c+c1}{// \PYZdq{}Construct\PYZdq{} a GivenName and a SurName}
+         \PY{k}{let} \PY{n+nv}{a2} \PY{o}{=} \PY{o}{(}\PY{n}{GivenName} \PY{l+s}{\PYZdq{}}\PY{l+s}{Jakob}\PY{l+s}{\PYZdq{}}\PY{o}{)}
+         \PY{k}{let} \PY{n+nv}{b2} \PY{o}{=} \PY{o}{(}\PY{n}{SurName} \PY{l+s}{\PYZdq{}}\PY{l+s}{Christensen}\PY{l+s}{\PYZdq{}}\PY{o}{)}
+         \PY{n}{createDisplayName2} \PY{n}{a2} \PY{n}{b2}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}44}]:} Jakob Christensen
+\end{Verbatim}
+            
+    If you accidentally switch the two arguments, you will get an error
+because the types \texttt{GivenName} and \texttt{SurName} are not
+considered the same by F\#, even though they are actually just strings.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}43}]:} \PY{n}{createDisplayName2} \PY{n}{b2} \PY{n}{a2}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Stopped due to error
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        input.fsx (1,20)-(1,22) typecheck error This expression was expected to have type
+        'GivenName'    
+    but here has type
+        'SurName'    
+    input.fsx (1,23)-(1,25) typecheck error This expression was expected to have type
+        'SurName'    
+    but here has type
+        'GivenName'    
+
+    \end{Verbatim}
+
+    If you want to get the value "inside" a single case discriminated union,
+you need to deconstruct it. The function \texttt{createDisplayName2}
+above shows how to do that easily for function parameters. If you want
+to desconstruct without doing it as a function parameter, it is a bit
+more cumbersome. This is how it is done.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{k}{let} \PY{o}{(}\PY{n}{GivenName} \PY{n}{deconstructedGivenName}\PY{o}{)} \PY{o}{=} \PY{n}{a2}
+         \PY{n}{deconstructedGivenName}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}46}]:} Jakob
+\end{Verbatim}
+            
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
