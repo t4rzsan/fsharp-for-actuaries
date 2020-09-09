@@ -1,0 +1,41 @@
+[0905/025221.931:ERROR:directory_reader_win.cc(43)] FindFirstFile: Den angivne sti blev ikke fundet. (0x3)
+[0907/133634.758:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133634.759:ERROR:exception_snapshot_win.cc(100)] thread ID 14832 not found in process
+[0907/133634.760:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133634.761:ERROR:exception_snapshot_win.cc(100)] thread ID 17660 not found in process
+[0907/133634.766:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133634.766:ERROR:exception_snapshot_win.cc(100)] thread ID 11076 not found in process
+[0907/133634.755:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133634.766:ERROR:exception_snapshot_win.cc(100)] thread ID 17060 not found in process
+[0907/133634.769:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133634.769:ERROR:exception_snapshot_win.cc(100)] thread ID 8628 not found in process
+[0907/133634.954:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.955:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133634.956:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133634.956:ERROR:exception_snapshot_win.cc(100)] thread ID 3076 not found in process
+[0907/133635.000:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133635.000:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133635.000:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133635.000:ERROR:exception_snapshot_win.cc(100)] thread ID 5924 not found in process
+[0907/133635.006:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133635.006:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133635.006:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133635.006:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133635.006:ERROR:exception_snapshot_win.cc(100)] thread ID 17544 not found in process
+[0907/133635.032:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\chris\AppData\Local\Microsoft\Edge Dev\User Data\Crashpad\attachments\c29e4c0c-be00-4a83-bdcb-41313173d75c: Den angivne sti blev ikke fundet. (0x3)
+[0907/133635.049:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\chris\AppData\Local\Microsoft\Edge Dev\User Data\Crashpad\attachments\d92f46ec-23ac-4f27-a424-d2e1cc5fd9b2: Den angivne sti blev ikke fundet. (0x3)
+[0907/133635.061:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\chris\AppData\Local\Microsoft\Edge Dev\User Data\Crashpad\attachments\2d2b86a0-9d06-437d-8dd7-9d1c900c8f83: Den angivne sti blev ikke fundet. (0x3)
+[0907/133635.085:ERROR:process_reader_win.cc(155)] SuspendThread: Adgang nægtet. (0x5)
+[0907/133635.085:ERROR:process_reader_win.cc(127)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder. (0xc0000022)
+[0907/133635.085:ERROR:exception_snapshot_win.cc(100)] thread ID 14100 not found in process
+[0907/133635.086:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\chris\AppData\Local\Microsoft\Edge Dev\User Data\Crashpad\attachments\e82a5476-cf9a-498f-87c6-e147e6cabfa5: Den angivne sti blev ikke fundet. (0x3)
+[0907/133635.099:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\chris\AppData\Local\Microsoft\Edge Dev\User Data\Crashpad\attachments\69ae1997-2ef1-40e3-8f59-a44328c18756: Den angivne sti blev ikke fundet. (0x3)
+[0907/133635.195:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\chris\AppData\Local\Microsoft\Edge Dev\User Data\Crashpad\attachments\7e1f265a-18d8-4920-8d09-17e0dea21325: Den angivne sti blev ikke fundet. (0x3)
