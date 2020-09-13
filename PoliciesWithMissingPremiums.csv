@@ -1,0 +1,7 @@
+PersonId;PolicyNumber;Age;Group;Gender;Premium;TechnicalProvision
+1;Pol001;55;R2;m;100;1233,54
+1;Pol002;55;R2;m;150;264,23
+2;Pol003;32;R3;f;;5465,32
+2;Pol004;32;R3;f;300;475,23
+3;Pol005;20;R2;m;;234
+4;Pol006;64;R2;f;167;5343,64
