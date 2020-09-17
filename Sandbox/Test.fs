@@ -1,9 +1,3 @@
-
-type ValidationError =
-    | EmailValidation of string
-    | NamesValidation
-    | AddressValidation of string
-    
 type Email = Email of string
 type Name = Name of string
 type StreetAddress = StreetAddress of string
@@ -15,6 +9,7 @@ type Address =
         PostalCode: PostalCode;
         City: City;
     }
+
 type Customer =
     {
         Email: Email;
@@ -22,6 +17,11 @@ type Customer =
         Address: Address;
     }
 
+type ValidationError =
+    | EmailValidation of string
+    | NamesValidation
+    | AddressValidation of string
+    
 let validateEmailWithResult doFail (customer: Customer) = 
     if doFail then
         Error(EmailValidation("The email is not in the correct format."))
@@ -42,8 +42,8 @@ let validateAddressWithResult doFail (customer: Customer) =
 
 let (>=>) a b x =
     match a x with
-    | Ok v -> b v
-    | Error reason -> Error(reason)
+    | Ok v -> b v // If first function returns Ok, pass the result to the next function.
+    | Error reason -> Error(reason) // If the first function return Error, return the Error. 
 
 let validateWithOk =
     validateEmailWithResult false
@@ -51,11 +51,11 @@ let validateWithOk =
     >=> validateAddressWithResult false
     
 let validateWithError = 
-    validateEmailWithResult true
+    validateEmailWithResult true // Force an error
     >=> validateNamesWithResult false
     >=> validateAddressWithResult false
 
-let getCustomer () =
+let customer =
     {
         Email = (Email "jakob@domain.com");
         Name = (Name "Jakob Christensen");
@@ -67,5 +67,9 @@ let getCustomer () =
             };
     }
 
-let customer = getCustomer ()
-let res = validateWithError customer
+printfn "This one is ok: %A" (validateWithOk customer)
+printfn "Ths on failed: %A" (validateWithError customer)
+
+let (>>=) x f = Result.bind f x
+    
+
