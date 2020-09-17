@@ -9,7 +9,6 @@ type Address =
         PostalCode: PostalCode;
         City: City;
     }
-
 type Customer =
     {
         Email: Email;
@@ -21,7 +20,7 @@ type ValidationError =
     | EmailValidation of string
     | NamesValidation
     | AddressValidation of string
-    
+
 let validateEmailWithResult doFail (customer: Customer) = 
     if doFail then
         Error(EmailValidation("The email is not in the correct format."))
@@ -39,11 +38,13 @@ let validateAddressWithResult doFail (customer: Customer) =
         Error(AddressValidation("Street address is invalid."))
     else
         Ok(customer)
-
+        
 let (>=>) a b x =
     match a x with
-    | Ok v -> b v // If first function returns Ok, pass the result to the next function.
-    | Error reason -> Error(reason) // If the first function return Error, return the Error. 
+    | Ok v -> b v
+    | Error reason -> Error(reason)
+
+let (>>=) x f = Result.bind f x
 
 let validateWithOk =
     validateEmailWithResult false
@@ -70,6 +71,12 @@ let customer =
 printfn "This one is ok: %A" (validateWithOk customer)
 printfn "Ths on failed: %A" (validateWithError customer)
 
-let (>>=) x f = Result.bind f x
-    
+let validateWithError2 x =
+    x
+    |> (validateEmailWithResult true)
+    >>= (validateNamesWithResult false)
+    >>= (validateAddressWithResult false)
 
+let t1 x = x |> (validateEmailWithResult true)
+let t2 x = (t1 x) >>= (validateNamesWithResult false)
+let t3 x = (t2 x) >>= (validateAddressWithResult false)
