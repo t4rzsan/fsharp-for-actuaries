@@ -76,6 +76,7 @@ ENV PATH="${PATH}:${HOME}/.dotnet/tools"
 RUN echo "$PATH"
 
 # Install kernel specs
+RUN echo "Installing dotnet interactive jupyter"
 RUN dotnet interactive jupyter install
 
 # Enable telemetry once we install jupyter for the image
