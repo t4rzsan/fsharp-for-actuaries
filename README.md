@@ -3,4 +3,4 @@ Jupyter notebooks for an introduction to F# for actuaries and others who are a l
 
 Click the binder badge below to read the guide in your own playground.
  
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/t4rzsan/fsharp-for-actuaries/adcf0fedcb917b676e6a77c6173a3cd64299cd3f)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/t4rzsan/fsharp-for-actuaries/ba138d935e6b2817258237c4007e9d644f9b5f39)
